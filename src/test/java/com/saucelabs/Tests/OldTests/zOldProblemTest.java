@@ -24,7 +24,7 @@ public class zOldProblemTest {
     public String problemTypeTest = "Сміттєзвалища";
     public String problemDescriptionTest = "Нельзя так жить";
     public String problemProposeTest = "Свалите от туда";
-    public List<String> imageUrls = Arrays.asList("http://i.imgur.com/HHXCVbs.jpg");
+    public List<String> imageUrls = Arrays.asList("");
     public List<String> imageComments = Arrays.asList("comment1");
 
     WebDriver driver;
@@ -40,14 +40,14 @@ public class zOldProblemTest {
 
         problemPage.logIn("admin@.com", "admin");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        problemPage.addProblemToVisibleCenter(latitude, longitude, problemNameTest, problemTypeTest, problemDescriptionTest, problemProposeTest, imageUrls, imageComments);
-//        driver.navigate().refresh();
-//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        problemPage.clickAtProblemByCoordinateVisible(latitude, longitude);
+        problemPage.addProblemToVisibleCenter(latitude, longitude, problemNameTest, problemTypeTest, problemDescriptionTest, problemProposeTest, imageUrls, imageComments);
+        driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        problemPage.clickAtProblemByCoordinateVisible(latitude, longitude);
     }
     @AfterSuite
     public  void turnDown() {
-        this.driver.quit();
+        this.driver.close();
         System.out.println("Browser close\n");
     }
 

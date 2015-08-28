@@ -44,10 +44,6 @@ public class zOldFiltersTest {
         driver.manage().window().maximize();
     }
 
-    @AfterSuite
-    public void turnDown() {
-        this.driver.quit();
-    }
 
    //@Test
    public void checkFiltersNegative() throws Exception {
@@ -75,6 +71,7 @@ public class zOldFiltersTest {
         mapPage.clickAtProblemByCoordinateVisible(latitude, longitude);
 
         Assert.assertEquals(mapPage.getFilterTitle(typeNumber), problemPage.getProblemType());
+        driver.close();
     }
     }
 

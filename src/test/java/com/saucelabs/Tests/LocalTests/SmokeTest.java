@@ -42,7 +42,7 @@ public class SmokeTest {
                         "admin",
                         "testFirstName",
                         "testLastName",
-                        "test01@test.com",
+                        "test646@test.com",
                         "test01",
                         "Comment1"
                 }
@@ -79,8 +79,9 @@ public class SmokeTest {
         anyPage.logIn(adminEmail, adminPassword);
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         id = problemPage.getProblemId(latitude, longitude);
@@ -88,13 +89,14 @@ public class SmokeTest {
         try {
             Thread.sleep(1000);
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         problemPage.openProblemById(id);
 
         Assert.assertEquals(problemPage.getProblemTitle(), problemTitle);
 
-        problemPage.deleteOpenedProblem();
+        //problemPage.deleteOpenedProblem();
 
         anyPage.logOut();
 

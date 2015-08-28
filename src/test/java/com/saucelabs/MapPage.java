@@ -92,8 +92,9 @@ public class MapPage implements IMapPage {
 
         System.out.println("Before Explicit Wait during set view");
         try {
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 1);
+            WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
             WebElement addProblem = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(ADD_PROBLEM_MENU));
+            addProblem.isDisplayed();
             addProblemWidth = addProblem.getSize().getWidth();
             addProblemHeight = addProblem.getSize().getHeight();
         } catch (Exception e) {
@@ -157,14 +158,14 @@ public class MapPage implements IMapPage {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
         System.out.println("Before Explicit Wait during click");
-        try {
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 1);
+    /*    try {
+            WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
             WebElement addProblem = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(ADD_PROBLEM_MENU));
             addProblemWidth = addProblem.getSize().getWidth();
             addProblemHeight = addProblem.getSize().getHeight();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         System.out.println("After Explicit Wait during click");
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

@@ -152,7 +152,7 @@ public class AnyPage extends MapPage implements IAnyPage, IMapPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        closeAlertIfPresent();
+        driver.findElement(CLOSE_CROSS_IN_ALERT_WINDOW).click();
     }
 
     /**
@@ -473,12 +473,12 @@ public class AnyPage extends MapPage implements IAnyPage, IMapPage {
      */
     private void closeAlertIfPresent() {
         driver.findElement(ADD_PROBLEM_SUBMIT_BUTTON).click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    /*    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         WebElement login = (new WebDriverWait(driver, 1))
                 .until(ExpectedConditions.presenceOfElementLocated(LOGIN_LINK));
         WebElement alert = (new WebDriverWait(driver, 1))
                 .until(ExpectedConditions.presenceOfElementLocated(ALERT_WINDOW));
-        alert.findElement(CLOSE_CROSS_IN_ALERT_WINDOW).click();
+        alert.findElement(CLOSE_CROSS_IN_ALERT_WINDOW).click();*/
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
